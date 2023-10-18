@@ -1,7 +1,6 @@
 input.onButtonPressed(Button.A, function () {
     abbruch = 0
     Eingabe = 0
-    COUNTDOWN()
     while (!(abbruch)) {
         zahl2 = randint(1, 4)
         zahl1 = randint(1, 4)
@@ -44,7 +43,6 @@ let zahl2 = 0
 let Eingabe = 0
 let abbruch = 0
 I2C_LCD1602.LcdInit(39)
-start()
 basic.forever(function () {
     wert = pins.analogReadPin(AnalogPin.P2)
     if (wert < 50) {
@@ -52,25 +50,34 @@ basic.forever(function () {
         I2C_LCD1602.clear()
         I2C_LCD1602.ShowString("" + zahl1 + "+" + ("" + zahl2) + "=1", 2, 0)
         Eingabe = 1
+        I2C_LCD1602.clear()
     } else if (wert < 150) {
         basic.showNumber(2)
         I2C_LCD1602.clear()
         I2C_LCD1602.ShowString("" + zahl1 + "+" + ("" + zahl2) + "=2", 2, 0)
         Eingabe = 2
+        basic.pause(2000)
+        I2C_LCD1602.clear()
     } else if (wert < 260) {
         basic.showNumber(3)
         I2C_LCD1602.clear()
         I2C_LCD1602.ShowString("" + zahl1 + "+" + ("" + zahl2) + "=3", 2, 0)
         Eingabe = 3
+        basic.pause(2000)
+        I2C_LCD1602.clear()
     } else if (wert < 520) {
         basic.showNumber(4)
         I2C_LCD1602.clear()
         I2C_LCD1602.ShowString("" + zahl1 + "+" + ("" + zahl2) + "=4", 2, 0)
         Eingabe = 4
+        basic.pause(2000)
+        I2C_LCD1602.clear()
     } else if (wert < 600) {
         basic.showNumber(5)
         I2C_LCD1602.clear()
         I2C_LCD1602.ShowString("" + zahl1 + "+" + ("" + zahl2) + "=5", 2, 0)
         Eingabe = 5
+        basic.pause(2000)
+        I2C_LCD1602.clear()
     }
 })
