@@ -9,6 +9,13 @@ input.onButtonPressed(Button.A, function () {
             abbruch = 1
         }
     }
+    I2C_LCD1602.ShowString("" + zahl1 + "+" + ("" + zahl2) + "=?", 2, 0)
+    startZeit = control.millis()
+    while (Eingabe == 0) {
+    	
+    }
+    EndZeit = control.millis()
+    I2C_LCD1602.ShowString("Dauer:" + ("" + (EndZeit - startZeit)) + "ms", 2, 0)
 })
 function COUNTDOWN () {
     I2C_LCD1602.ShowString("3", 5, 0)
@@ -36,6 +43,8 @@ function start () {
     I2C_LCD1602.clear()
 }
 let wert = 0
+let EndZeit = 0
+let startZeit = 0
 let ergebnis = 0
 let zahl1 = 0
 let zahl2 = 0
