@@ -1,7 +1,6 @@
 input.onButtonPressed(Button.A, function () {
     abbruch = 0
     Eingabe = 0
-    COUNTDOWN()
     while (!(abbruch)) {
         zahl2 = randint(1, 4)
         zahl1 = randint(1, 4)
@@ -10,13 +9,13 @@ input.onButtonPressed(Button.A, function () {
             abbruch = 1
         }
     }
-    I2C_LCD1602.ShowString("" + zahl1 + "+" + zahl2 + "=?", 2, 0)
+    I2C_LCD1602.ShowString("" + zahl1 + "+" + ("" + zahl2) + "=?", 2, 0)
     startZeit = control.millis()
     while (Eingabe == 0) {
     	
     }
     EndZeit = control.millis()
-    I2C_LCD1602.ShowString("Dauer:" + (EndZeit - startZeit) + "ms", 2, 0)
+    I2C_LCD1602.ShowString("Dauer:" + ("" + (EndZeit - startZeit)) + "ms", 2, 0)
 })
 function COUNTDOWN () {
     I2C_LCD1602.ShowString("3", 5, 0)
@@ -31,6 +30,18 @@ function COUNTDOWN () {
     I2C_LCD1602.ShowString("0", 5, 0)
     music.play(music.tonePlayable(440, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
 }
+function start () {
+    I2C_LCD1602.ShowString("Hallo", 5, 0)
+    I2C_LCD1602.ShowString("Rechenkuenstler", 0, 1)
+    basic.pause(2000)
+    I2C_LCD1602.clear()
+    I2C_LCD1602.ShowString("ich starte", 4, 1)
+    basic.pause(5000)
+    I2C_LCD1602.clear()
+    I2C_LCD1602.ShowString("ES GEHT LOS", 4, 1)
+    basic.pause(2000)
+    I2C_LCD1602.clear()
+}
 let wert = 0
 let EndZeit = 0
 let startZeit = 0
@@ -40,32 +51,27 @@ let zahl2 = 0
 let Eingabe = 0
 let abbruch = 0
 I2C_LCD1602.LcdInit(39)
-I2C_LCD1602.ShowString("Hallo", 5, 0)
-I2C_LCD1602.ShowString("Rechenkuenstler", 0, 1)
-basic.pause(2000)
-I2C_LCD1602.clear()
-I2C_LCD1602.ShowString("ich starte", 4, 1)
-basic.pause(5000)
-I2C_LCD1602.clear()
-I2C_LCD1602.ShowString("ES GEHT LOS", 4, 1)
-basic.pause(2000)
-I2C_LCD1602.clear()
 basic.forever(function () {
     wert = pins.analogReadPin(AnalogPin.P2)
     if (wert < 50) {
         basic.showNumber(1)
+        I2C_LCD1602.ShowString("Hello", 0, 0)
         Eingabe = 1
     } else if (wert < 150) {
         basic.showNumber(2)
+        I2C_LCD1602.ShowString("Hello", 0, 0)
         Eingabe = 2
     } else if (wert < 260) {
         basic.showNumber(3)
+        I2C_LCD1602.ShowString("Hello", 0, 0)
         Eingabe = 3
     } else if (wert < 520) {
         basic.showNumber(4)
+        I2C_LCD1602.ShowString("Hello", 0, 0)
         Eingabe = 4
     } else if (wert < 600) {
         basic.showNumber(5)
+        I2C_LCD1602.ShowString("Hello", 0, 0)
         Eingabe = 5
     }
 })
