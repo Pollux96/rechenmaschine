@@ -9,7 +9,6 @@ input.onButtonPressed(Button.A, function () {
             abbruch = 1
         }
     }
-    I2C_LCD1602.ShowString("" + zahl1 + "+" + ("" + zahl2) + "=?", 2, 0)
 })
 function COUNTDOWN () {
     I2C_LCD1602.ShowString("3", 5, 0)

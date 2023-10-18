@@ -2,16 +2,13 @@ def on_button_pressed_a():
     global abbruch, Eingabe, zahl2, zahl1, ergebnis
     abbruch = 0
     Eingabe = 0
-    for index in range(10):
-        Eingabe = 0
-        abbruch = 0
-        while not (abbruch):
-            zahl2 = randint(1, 4)
-            zahl1 = randint(1, 4)
-            ergebnis = zahl1 + zahl2
-            if ergebnis < 5:
-                abbruch = 1
-        I2C_LCD1602.show_string("" + str(zahl1) + "+" + ("" + str(zahl2)) + "=?", 2, 0)
+    while not (abbruch):
+        zahl2 = randint(1, 4)
+        zahl1 = randint(1, 4)
+        ergebnis = zahl1 + zahl2
+        if ergebnis < 5:
+            abbruch = 1
+    I2C_LCD1602.show_string("" + str(zahl1) + "+" + ("" + str(zahl2)) + "=?", 2, 0)
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def COUNTDOWN():
