@@ -57,23 +57,23 @@ basic.forever(function () {
     wert = pins.analogReadPin(AnalogPin.P2)
     if (wert < 50) {
         basic.showNumber(1)
-        I2C_LCD1602.ShowString("Hello", 0, 0)
+        I2C_LCD1602.ShowString("" + zahl1 + "+" + ("" + zahl2) + "=1", 0, 0)
         Eingabe = 1
     } else if (wert < 150) {
         basic.showNumber(2)
-        I2C_LCD1602.ShowString("Hello", 0, 0)
+        I2C_LCD1602.ShowString("" + zahl1 + "+" + ("" + zahl2) + "=2", 0, 0)
         Eingabe = 2
     } else if (wert < 260) {
         basic.showNumber(3)
-        I2C_LCD1602.ShowString("Hello", 0, 0)
+        I2C_LCD1602.ShowString("" + zahl1 + "+" + ("" + zahl2) + "=3", 0, 0)
         Eingabe = 3
     } else if (wert < 520) {
         basic.showNumber(4)
-        I2C_LCD1602.ShowString("Hello", 0, 0)
+        I2C_LCD1602.ShowString("" + zahl1 + "+" + ("" + zahl2) + "=4", 0, 0)
         Eingabe = 4
     } else if (wert < 600) {
         basic.showNumber(5)
-        I2C_LCD1602.ShowString("Hello", 0, 0)
+        I2C_LCD1602.ShowString("" + zahl1 + "+" + ("" + zahl2) + "=5", 0, 0)
         Eingabe = 5
     }
 })
