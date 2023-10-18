@@ -1,6 +1,7 @@
 input.onButtonPressed(Button.A, function () {
     abbruch = 0
     Eingabe = 0
+    COUNTDOWN()
     while (!(abbruch)) {
         zahl2 = randint(1, 4)
         zahl1 = randint(1, 4)
@@ -51,6 +52,7 @@ let zahl2 = 0
 let Eingabe = 0
 let abbruch = 0
 I2C_LCD1602.LcdInit(39)
+start()
 basic.forever(function () {
     wert = pins.analogReadPin(AnalogPin.P2)
     if (wert < 50) {
